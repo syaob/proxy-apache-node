@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  apache:
+    container_name: apache-container
+    build:
+      context: ./ubuntu-apache-server
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+        #volumes:
+        #- ./apache/html:/var/www/html
+    networks:
+      - web-network
+
+  php:
+    container_name: php-container
+    build:
+      context: ./proxy-php
+      dockerfile: Dockerfile
+    volumes:
+      - ./proxy-php:/var/www/html
+    networks:
+      - web-network
+
+  node:
+    container_name: node-container
+    build:
+      context: ./proxy-node
+      dockerfile: Dockerfile
+      #volumes:
+      #- ./proxy-node:/usr/src/app
+    networks:
+      - web-network
+
+networks:
+  web-network:
+
