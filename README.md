@@ -47,3 +47,10 @@ NB :
 Future version :
 "Prévoir de vraies applications React et une API PHP"
 "ajouter le ssl avec letsencrypt pour https"
+
+Étapes de lancement :
+- docker-compose up --build -d
+- vous aurez les trois containers (apache, php, node) suite la requete docker-compose up
+- dans le navigateur localhost/node pour acceder à l'application node
+- dans le navigateur localhost/php pour acceder à l'application php
+
